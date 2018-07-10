@@ -79,4 +79,4 @@ Config.init details TBD.
 
 ## Would be nice
 * Analog Pins, or serial data out with sound levels for visualization.
-* Being able to change all 6 sounds to be in layers manually so oyu could have 6 one shots instead ( 6 layers ) 
+* Being able to change all 6 sounds to be in their own layers
