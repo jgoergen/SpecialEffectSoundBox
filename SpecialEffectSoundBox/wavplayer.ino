@@ -29,26 +29,26 @@ void waveplayer_playLayer1(int soundNumber) {
     
     case 1:
       if (currentWaveSet == 0)
-        playSdWav1.play("Layer1_Set1_Sound1.wav");
+        playSdWav1.play("Mode1_Layer1_Sound1.wav");
       else if (currentWaveSet == 1)
-        playSdWav1.play("Layer1_Set2_Sound1.wav");
+        playSdWav1.play("Mode2_Layer1_Sound1.wav");
       else if (currentWaveSet == 2)
-        playSdWav1.play("Layer1_Set3_Sound1.wav");
+        playSdWav1.play("Mode3_Layer1_Sound1.wav");
       else if (currentWaveSet == 3)
-        playSdWav1.play("Layer1_Set4_Sound1.wav");
+        playSdWav1.play("Mode4_Layer1_Sound1.wav");
         
       currentLayer1Sound = 1;
       break;
       
     case 2:
       if (currentWaveSet == 0)
-        playSdWav1.play("Layer1_Set1_Sound2.wav");
+        playSdWav1.play("Mode1_Layer1_Sound2.wav");
       else if (currentWaveSet == 1)
-        playSdWav1.play("Layer1_Set2_Sound2.wav");
+        playSdWav1.play("Mode2_Layer1_Sound2.wav");
       else if (currentWaveSet == 2)
-        playSdWav1.play("Layer1_Set3_Sound2.wav");
+        playSdWav1.play("Mode3_Layer1_Sound2.wav");
       else if (currentWaveSet == 3)
-        playSdWav1.play("Layer1_Set4_Sound2.wav");
+        playSdWav1.play("Mode4_Layer1_Sound2.wav");
         
       currentLayer1Sound = 2;
       break;
@@ -79,26 +79,26 @@ void waveplayer_playLayer2(int soundNumber) {
     
     case 1:
       if (currentWaveSet == 0)
-        playSdWav1.play("Layer2_Set1_Sound1.wav");
+        playSdWav1.play("Mode1_Layer2_Sound1.wav");
       else if (currentWaveSet == 1)
-        playSdWav1.play("Layer2_Set2_Sound1.wav");
+        playSdWav1.play("Mode2_Layer2_Sound1.wav");
       else if (currentWaveSet == 2)
-        playSdWav1.play("Layer2_Set3_Sound1.wav");
+        playSdWav1.play("Mode3_Layer2_Sound1.wav");
       else if (currentWaveSet == 3)
-        playSdWav1.play("Layer2_Set4_Sound1.wav");
+        playSdWav1.play("Mode4_Layer2_Sound1.wav");
         
       currentLayer2Sound = 1;
       break;
       
     case 2:
       if (currentWaveSet == 0)
-        playSdWav1.play("Layer2_Set1_Sound2.wav");
+        playSdWav1.play("Mode1_Layer2_Sound2.wav");
       else if (currentWaveSet == 1)
-        playSdWav1.play("Layer2_Set2_Sound2.wav");
+        playSdWav1.play("Mode2_Layer2_Sound2.wav");
       else if (currentWaveSet == 2)
-        playSdWav1.play("Layer2_Set3_Sound2.wav");
+        playSdWav1.play("Mode3_Layer2_Sound2.wav");
       else if (currentWaveSet == 3)
-        playSdWav1.play("Layer2_Set4_Sound2.wav");
+        playSdWav1.play("Mode4_Layer2_Sound2.wav");
         
       currentLayer2Sound = 2;
       break;
@@ -128,26 +128,26 @@ void waveplayer_playLayer3(int soundNumber) {
     
     case 1:
       if (currentWaveSet == 0)
-        playSdWav1.play("Layer3_Set1_Sound1.wav");
+        playSdWav1.play("Mode1_Layer3_Sound1.wav");
       else if (currentWaveSet == 1)
-        playSdWav1.play("Layer3_Set2_Sound1.wav");
+        playSdWav1.play("Mode2_Layer3_Sound1.wav");
       else if (currentWaveSet == 2)
-        playSdWav1.play("Layer3_Set3_Sound1.wav");
+        playSdWav1.play("Mode3_Layer3_Sound1.wav");
       else if (currentWaveSet == 3)
-        playSdWav1.play("Layer3_Set4_Sound1.wav");
+        playSdWav1.play("Mode4_Layer3_Sound1.wav");
         
       currentLayer3Sound = 1;
       break;
       
     case 2:
       if (currentWaveSet == 0)
-        playSdWav1.play("Layer3_Set1_Sound2.wav");
+        playSdWav1.play("Mode1_Layer3_Sound2.wav");
       else if (currentWaveSet == 1)
-        playSdWav1.play("Layer3_Set2_Sound2.wav");
+        playSdWav1.play("Mode2_Layer3_Sound2.wav");
       else if (currentWaveSet == 2)
-        playSdWav1.play("Layer3_Set3_Sound2.wav");
+        playSdWav1.play("Mode3_Layer3_Sound2.wav");
       else if (currentWaveSet == 3)
-        playSdWav1.play("Layer3_Set4_Sound2.wav");
+        playSdWav1.play("Mode4_Layer3_Sound2.wav");
         
       currentLayer3Sound = 2;
       break;
