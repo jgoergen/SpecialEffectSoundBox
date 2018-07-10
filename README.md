@@ -56,12 +56,12 @@ A small device which plays sounds in layers and processes voice effects to be mi
 
 ## Instructions for use
 When you turn it on, the device will look to the config.ini for defaults, otherwise it will use the preset defaults.
-There are 4 modes, each mode works the same but has it's own set of 6 sounds.
-The sounds are in groups of 2 ( layers. ) Only one sound per layer can be played at a time, if you play sound one, then press sound 2, sound 1 will stop playing. This is on purpose, so you can have sounds that don't overlay, like background music.
+
+Pressing the mode button ( B4 ) will automatically stop all playing sounds and switch between 1 or 4 modes for new sounds. Each mode works the same but has it's own set of 6 sounds.
+
+The sounds are in groups of 2 ( layers. ) Only one sound per layer can be played at a time, if you play sound 1, then press sound 2, sound 1 will stop playing. This is on purpose, so you can have sounds that don't overlay, like background music. Pressing the same sound twice will play, and then stop it ( if it's still playing. )
 
 The knobs normally will adjust the voice settings, but if you hold the stop all sounds button ( B8 ) the knobs will change the layer volumes instead so you could make layer 1 sounds louder then 2 and 3.
-
-Pressing the mode button ( B4 ) will automatically stop all playing sounds and switch between 1 or 4 modes for new sounds.
 
 ## SD Card file description
 The SD Card will store all of the sounds for each mode and the default configuration file in the root, and it must be formatted as fat32 ( use SDCardFormatter for this. )
