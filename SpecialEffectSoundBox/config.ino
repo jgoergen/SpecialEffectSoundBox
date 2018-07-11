@@ -1,9 +1,9 @@
 
-void config_load(char[] configData) {
+void config_load() {
 
-  Serial.print("CONFIG LOAD NOT DONE");
+  Serial.println("CONFIG LOAD NOT DONE");
   return;
-  
+  /*
   Serial.print("Checking SD card for config file...");
 
   configFile = SD.open("config.init", FILE_WRITE);
@@ -14,10 +14,8 @@ void config_load(char[] configData) {
     Serial.println("found");
     Serial.print("Reading config file...");
 
-    /*
-     string dataString = myFile.readStringUntil('\n');
-     dataString.toInt()
-     */
+    //string dataString = myFile.readStringUntil('\n');
+    // dataString.toInt()
     
     char[10000] configData;
     while (myFile.available()) {
@@ -34,23 +32,26 @@ void config_load(char[] configData) {
   
   Serial.println("Config Data:");
   Serial.println(configData);  
+  */
 }
 
 void config_save() {
 
-  /*
-    int waveLayer1Volume
-    int waveLayer2Volume
-    int waveLayer3Volume
-    int voiceVolume
-    int voicePitch
-    int voiceDelay
-    int voiceReverb
-  */
-   
-  Serial.print("CONFIG SAVE NOT DONE");
+  // YOU CANNOT WRITE TO THE SD CARD BECAUSE THE TEENSY 3.x SD LIB IS SET TO OPTIMZED READ!
+  // SEE C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\SD\SD_t3.h 
+  
+  Serial.println("CONFIG SAVE NOT DONE");
   return;
 
+  /*
+     waveLayer1Volume
+     waveLayer2Volume
+     waveLayer3Volume
+     voiceVolume
+     voicePitch
+     voiceDelay
+     voiceReverb
+  
   Serial.print("Saving config file...");
   configFile = SD.open("config.init", FILE_WRITE);
   
@@ -67,5 +68,5 @@ void config_save() {
   } else {
     
     Serial.println("failed");
-  }
+  }*/
 }

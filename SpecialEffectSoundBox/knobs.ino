@@ -1,14 +1,21 @@
-#define MAX_KNOB_VALUE  0
-#define MIN_KNOB_VALUE  100
+#define MAX_KNOB_VALUE  1024 //65535
+#define MIN_KNOB_VALUE  0
 
 void knobs_init() {
 
+  Serial.print("Kobs init...");
+  pinMode(POTENTIOMETER_PIN_1, INPUT);
+  pinMode(POTENTIOMETER_PIN_2, INPUT);
+  pinMode(POTENTIOMETER_PIN_3, INPUT);
+  pinMode(POTENTIOMETER_PIN_4, INPUT);
+  Serial.println("done");
 }
 
 int knobs_read1() {
 
+  tempVal = analogRead(POTENTIOMETER_PIN_1);
   return map(
-    analogRead(POTENTIOMETER_PIN_1), 
+    tempVal, 
     MIN_KNOB_VALUE, 
     MAX_KNOB_VALUE, 
     0, 
@@ -17,8 +24,9 @@ int knobs_read1() {
 
 int knobs_read2() {
 
+  tempVal = analogRead(POTENTIOMETER_PIN_2);
   return map(
-    analogRead(POTENTIOMETER_PIN_2), 
+    tempVal, 
     MIN_KNOB_VALUE, 
     MAX_KNOB_VALUE, 
     0, 
@@ -27,8 +35,9 @@ int knobs_read2() {
 
 int knobs_read3() {
 
+  tempVal = analogRead(POTENTIOMETER_PIN_3);
   return map(
-    analogRead(POTENTIOMETER_PIN_3), 
+    tempVal, 
     MIN_KNOB_VALUE, 
     MAX_KNOB_VALUE, 
     0, 
@@ -37,8 +46,9 @@ int knobs_read3() {
 
 int knobs_read4() {
 
+  tempVal = analogRead(POTENTIOMETER_PIN_4);
   return map(
-    analogRead(POTENTIOMETER_PIN_4), 
+    tempVal, 
     MIN_KNOB_VALUE, 
     MAX_KNOB_VALUE, 
     0, 
