@@ -19,24 +19,24 @@
 // PIN DEFINITIONS ///////////////////////////////////////
 #define MICROPHONE_PIN  A2
 
-#define POTENTIOMETER_PIN_1 A15
-#define POTENTIOMETER_PIN_2 A16
-#define POTENTIOMETER_PIN_3 A17
-#define POTENTIOMETER_PIN_4 A18
+#define BUTTON_PIN_1 24
+#define BUTTON_PIN_2 27
+#define BUTTON_PIN_3 30
+#define BUTTON_PIN_4 12
+#define BUTTON_PIN_5 25
+#define BUTTON_PIN_6 28
+#define BUTTON_PIN_7 31
+#define BUTTON_PIN_8 11
+#define BUTTON_PIN_9 26
+#define BUTTON_PIN_10 29
+#define BUTTON_PIN_11 32
+#define BUTTON_PIN_12 10
 
-#define BUTTON_PIN_1 2
-#define BUTTON_PIN_2 3
-#define BUTTON_PIN_3 4
-#define BUTTON_PIN_4 5
-#define BUTTON_PIN_5 6
-#define BUTTON_PIN_6 7
-#define BUTTON_PIN_7 8
-#define BUTTON_PIN_8 9
-
-#define LED_PIN_1 33
-#define LED_PIN_2 38
-#define LED_PIN_3 36
-#define LED_PIN_4 13
+#define LED_PIN_1 6
+#define LED_PIN_2 2
+#define LED_PIN_3 3
+#define LED_PIN_4 4
+#define LED_PIN_5 5
 
 #define SDCARD_CS_PIN    BUILTIN_SDCARD
 #define SDCARD_MOSI_PIN  11  // not actually used
@@ -86,6 +86,10 @@ int button5LastState = 0;
 int button6LastState = 0;
 int button7LastState = 0;
 int button8LastState = 0;
+int button9LastState = 0;
+int button10LastState = 0;
+int button11LastState = 0;
+int button12LastState = 0;
 int knobUpdateWait = DEFAULT_KNOB_UPDATE_WAIT;
 int buttonUpdateWait = DEFAULT_BUTTON_UPDATE_WAIT;
 unsigned long nextKnobUpdate = 0; 
@@ -102,6 +106,7 @@ void setup() {
   pinMode(LED_PIN_2, OUTPUT);
   pinMode(LED_PIN_3, OUTPUT);
   pinMode(LED_PIN_4, OUTPUT);
+  pinMode(LED_PIN_5, OUTPUT);
   Serial.println("done");
 
   Serial.print("Initializing SD card...");
@@ -122,6 +127,28 @@ void setup() {
   voice_init();
   waveplayer_init();
   Serial.println("done");
+
+  introSequence();
+}
+
+void introSequence() {
+  
+  digitalWrite(LED_PIN_1, 1);
+  delay(100);
+  digitalWrite(LED_PIN_1, 0);
+  digitalWrite(LED_PIN_2, 1);
+  delay(100);
+  digitalWrite(LED_PIN_2, 0);
+  digitalWrite(LED_PIN_3, 1);
+  delay(100);
+  digitalWrite(LED_PIN_3, 0);
+  digitalWrite(LED_PIN_4, 1);
+  delay(100);
+  digitalWrite(LED_PIN_4, 0);
+  digitalWrite(LED_PIN_5, 1);
+  delay(100);
+  digitalWrite(LED_PIN_5, 0);
+  digitalWrite(LED_PIN_1, 1);
 }
 
 void loop() {
@@ -146,7 +173,7 @@ void loop() {
 void changeMode() {
 
   mode ++;
-  if (mode > 3)
+  if (mode > 4)
     mode = 0;
 
   Serial.print("Changing mode to ");
@@ -156,6 +183,7 @@ void changeMode() {
   digitalWrite(LED_PIN_2, mode == 1 ? 1 : 0);
   digitalWrite(LED_PIN_3, mode == 2 ? 1 : 0);
   digitalWrite(LED_PIN_4, mode == 3 ? 1 : 0);
+  digitalWrite(LED_PIN_5, mode == 4 ? 1 : 0);
   
   waveplayer_changeWaveSet(mode);
 }
@@ -166,64 +194,86 @@ void checkButtons() {
   if (tempVal != button1LastState) {
 
     button1LastState = tempVal;
-    if (button1LastState)
-      waveplayer_playLayer1(1);
+    Serial.print("Button 1 state ");
+    Serial.println(button1LastState);
+    
+    //if (button1LastState)
+    //  waveplayer_playLayer1(1);
   }
 
-// ignore the buttons that aren't hooked up yet
-return;
   tempVal = buttons_read2();
   if (tempVal != button2LastState) {
 
     button2LastState = tempVal;
-    if (button2LastState)
-      waveplayer_playLayer2(1);
+    Serial.print("Button 2 state ");
+    Serial.println(button2LastState);
+    
+    //if (button2LastState)
+    //  waveplayer_playLayer2(1);
   }
 
   tempVal = buttons_read3();
   if (tempVal != button3LastState) {
 
     button3LastState = tempVal;
-    if (button3LastState)
-      waveplayer_playLayer3(1);
+    Serial.print("Button 3 state ");
+    Serial.println(button3LastState);
+    
+    //if (button3LastState)
+    //  waveplayer_playLayer3(1);
   }
 
   tempVal = buttons_read4();
   if (tempVal != button4LastState) {
 
     button4LastState = tempVal;
-    if (button4LastState)
-      changeMode();
+    Serial.print("Button 4 state ");
+    Serial.println(button4LastState);
+    
+    //if (button4LastState)
+    //  changeMode();
   }
 
   tempVal = buttons_read5();
   if (tempVal != button5LastState) {
 
     button5LastState = tempVal;
-    if (button5LastState)
-      waveplayer_playLayer1(2);
+    Serial.print("Button 5 state ");
+    Serial.println(button5LastState);
+    
+    //if (button5LastState)
+    //  waveplayer_playLayer1(2);
   }
 
   tempVal = buttons_read6();
   if (tempVal != button6LastState) {
 
     button6LastState = tempVal;
-    if (button6LastState)
-      waveplayer_playLayer2(2);
+    Serial.print("Button 6 state ");
+    Serial.println(button6LastState);
+    
+    //if (button6LastState)
+    //  waveplayer_playLayer2(2);
   }
 
   tempVal = buttons_read7();
   if (tempVal != button7LastState) {
 
     button7LastState = tempVal;
-    if (button7LastState)
-      waveplayer_playLayer3(2);
+    Serial.print("Button 7 state ");
+    Serial.println(button7LastState);
+    
+    //if (button7LastState)
+    //  waveplayer_playLayer3(2);
   }
 
   tempVal = buttons_read8();
   if (tempVal != button8LastState) {
 
     button8LastState = tempVal;
+    Serial.print("Button 8 state ");
+    Serial.println(button8LastState);
+    /*
     if (button8LastState) {
       
       if (buttons_read4()) {
@@ -235,15 +285,61 @@ return;
         digitalWrite(LED_PIN_2, 1);
         digitalWrite(LED_PIN_3, 1);
         digitalWrite(LED_PIN_4, 1);
+        digitalWrite(LED_PIN_5, 1);
         delay(2000);
         digitalWrite(LED_PIN_1, mode == 0 ? 1 : 0);
         digitalWrite(LED_PIN_2, mode == 1 ? 1 : 0);
         digitalWrite(LED_PIN_3, mode == 2 ? 1 : 0);
         digitalWrite(LED_PIN_4, mode == 3 ? 1 : 0);
+        digitalWrite(LED_PIN_5, mode == 3 ? 1 : 0);
       }
       
       waveplayer_stopAllSounds();
-    }
+    }*/
+  }
+
+  tempVal = buttons_read9();
+  if (tempVal != button9LastState) {
+
+    button9LastState = tempVal;
+    Serial.print("Button 9 state ");
+    Serial.println(button9LastState);
+    
+    //if (button7LastState)
+    //  waveplayer_playLayer3(2);
+  }
+
+  tempVal = buttons_read10();
+  if (tempVal != button10LastState) {
+
+    button10LastState = tempVal;
+    Serial.print("Button 10 state ");
+    Serial.println(button10LastState);
+    
+    //if (button7LastState)
+    //  waveplayer_playLayer3(2);
+  }
+
+  tempVal = buttons_read11();
+  if (tempVal != button11LastState) {
+
+    button11LastState = tempVal;
+    Serial.print("Button 11 state ");
+    Serial.println(button11LastState);
+    
+    //if (button7LastState)
+    //  waveplayer_playLayer3(2);
+  }
+
+  tempVal = buttons_read12();
+  if (tempVal != button12LastState) {
+
+    button12LastState = tempVal;
+    Serial.print("Button 12 state ");
+    Serial.println(button12LastState);
+    
+    //if (button7LastState)
+    //  waveplayer_playLayer3(2);
   }
 }
 
